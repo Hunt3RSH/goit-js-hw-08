@@ -14,7 +14,9 @@ let formStorage = {
 
 function submitClick(e) {
   e.preventDefault();
-
+  if (formStorage.email === '' || formStorage.message === '') {
+    return alert('заповніть всі поля');
+  }
   e.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
