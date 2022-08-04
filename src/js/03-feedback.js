@@ -11,7 +11,7 @@ let formStorage = {
   email: '',
   message: '',
 };
-
+console.log(formStorage);
 function submitClick(e) {
   e.preventDefault();
   if (formStorage.email === '' || formStorage.message === '') {
