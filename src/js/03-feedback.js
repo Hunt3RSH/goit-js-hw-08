@@ -40,4 +40,3 @@ function savedMessage() {
 }
 
 savedMessage();
-console.log(formStorage);
