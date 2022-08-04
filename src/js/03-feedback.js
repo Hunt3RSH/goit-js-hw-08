@@ -11,10 +11,10 @@ let formStorage = {
   email: '',
   message: '',
 };
-console.log(formStorage);
+
 function submitClick(e) {
   e.preventDefault();
-  if (formStorage.email === '' || formStorage.message === '') {
+  if (!formStorage.email || !formStorage.message) {
     return alert('заповніть всі поля');
   }
   e.currentTarget.reset();
@@ -40,3 +40,4 @@ function savedMessage() {
 }
 
 savedMessage();
+console.log(formStorage);
