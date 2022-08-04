@@ -17,18 +17,24 @@ function submitClick(e) {
 
   e.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
-  console.log(
-    'поточні значення полів з сховища',
-    localStorage.removeItem(STORAGE_KEY)
-  );
 }
 
 function formInput(e) {
   formStorage[e.target.name] = e.target.value.trim();
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formStorage));
-
-  console.log(
-    'поточні значення полів форми',
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formStorage))
-  );
 }
+
+function savedMessage() {
+  formStorage = JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? formStorage;
+
+  try {
+    for (let key in formStorage) {
+      form.elements[key].value = formStorage[key];
+    }
+  } catch ({ name, message }) {
+    console.log(name);
+    console.log(message);
+  }
+}
+
+savedMessage();
